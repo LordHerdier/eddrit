@@ -1,0 +1,23 @@
+<div class="card">
+    <h5>About {{ about_information.title or about_information.name }}</h5>
+    {% if about_information.public_description %}
+    <p>{{ about_information.public_description }}</p>
+    {% endif %}
+
+    {% if not is_user_page %}
+    <button class="outline w-100 mb-2" id="subscribe-button" data-subreddit="{{ about_information.name }}"
+        onclick="window.subscriptionManager.toggleSubscription('{{ about_information.name }}')">Subscribe</button>
+    {% endif %}
+
+    {% if links | length > 0 %}
+    <hr>
+    <h6>Links</h6>
+    <ul class="list-unstyled">
+        {% for link in links %}
+        <li>
+            <a href="{{link.target}}">{{link.name }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</div>

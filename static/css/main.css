@@ -15,6 +15,43 @@ body {
 	--pico-line-height: 1.15;
 	--pico-font-size: 16px;
 	--post-content: 35rem;
+
+	/* Reddit-like variables */
+	--body-bg: #DAE0E6;
+	--card-bg: #FFFFFF;
+	--card-border-color: #CCCCCC;
+	--card-radius: 4px;
+	--header-bg: #FFFFFF;
+}
+
+body {
+	min-height: 100vh;
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	grid-template-columns: minmax(0, 1fr);
+	background-color: var(--body-bg);
+	font-family: IBMPlexSans, Arial, sans-serif;
+}
+
+/* Card Utility */
+.card {
+	background-color: var(--card-bg);
+	border: 1px solid var(--card-border-color);
+	border-radius: var(--card-radius);
+	margin-bottom: 1rem;
+	padding: 1rem;
+}
+
+/* Header utility */
+header.container-fluid {
+	background-color: var(--header-bg);
+	box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+	margin-bottom: 2rem;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	position: sticky;
+	top: 0;
+	z-index: 100;
 }
 
 a:link {
@@ -40,7 +77,7 @@ blockquote {
 	padding: calc(var(--pico-spacing) / 8);
 }
 
-blockquote > p {
+blockquote>p {
 	margin-bottom: 0;
 }
 
@@ -67,6 +104,13 @@ blockquote > p {
 }
 
 /* Dark theme stuff */
+
+html[data-theme="dark"] {
+	--body-bg: #030303;
+	--card-bg: #1A1A1B;
+	--card-border-color: #343536;
+	--header-bg: #1A1A1B;
+}
 
 html[data-theme="dark"] .dark-inverted {
 	filter: invert(100%);
@@ -122,7 +166,8 @@ html[data-theme="dark"] .dark-inverted {
 }
 
 .post-flair a {
-	color: unset; /* remove blue link color if in a flair */
+	color: unset;
+	/* remove blue link color if in a flair */
 }
 
 .post-flair-warning {
@@ -257,7 +302,8 @@ html[data-theme="dark"] .dark-inverted {
 /* Over 18 page */
 .over18-button {
 	/* biome-ignore lint/complexity/noImportantStyles: will fix later */
-	width: 10rem !important; /* !important to remove submit styling */
+	width: 10rem !important;
+	/* !important to remove submit styling */
 	margin-top: var(--pico-spacing);
 }
 

@@ -198,7 +198,7 @@ def parse_subreddit_information(
     # Check if multi
     splitted_name = name.split("+")
     if len(splitted_name) > 1:
-        title = f"Posts from {', '.join(splitted_name)}"
+        title = "Home"
         show_thumbnails = True
         public_description = "<p>Multi subreddits with :</p><ul>"
         for name in splitted_name:

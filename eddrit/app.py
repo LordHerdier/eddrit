@@ -14,6 +14,7 @@ from eddrit import config
 from eddrit.routes.common import exception_handlers
 from eddrit.routes.pages import (
     index,
+    media,
     meta,
     over18,
     root_files,
@@ -101,6 +102,7 @@ app = Starlette(
                 *root_files.routes,
                 *over18.routes,
                 *settings.routes,
+                *media.routes,
                 *index.routes,
             ],
             name="root",

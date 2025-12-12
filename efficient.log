@@ -1,0 +1,10 @@
+2025-12-12 10:18:01,350 [connection.py:57] INFO: Connecting to efficient.net.siue.edu as brennwh
+2025-12-12 10:18:01,409 [connection.py:63] INFO: Successfully connected to SOLIDserver
+2025-12-12 10:18:01,409 [connection.py:93] INFO: Retrieving space: SIUE
+2025-12-12 10:18:01,448 [connection.py:98] INFO: Successfully retrieved space 'SIUE' with ID: 3
+2025-12-12 10:18:01,449 [connection.py:118] INFO: Cleaning up SDS connection
+2025-12-12 10:18:05,075 [connection.py:57] INFO: Connecting to efficient.net.siue.edu as brennwh
+2025-12-12 10:18:05,130 [connection.py:63] INFO: Successfully connected to SOLIDserver
+2025-12-12 10:18:05,130 [connection.py:93] INFO: Retrieving space: SIUE
+2025-12-12 10:18:05,166 [connection.py:98] INFO: Successfully retrieved space 'SIUE' with ID: 3
+2025-12-12 10:18:05,167 [vlan_info.py:470] INFO: Processing VLAN list

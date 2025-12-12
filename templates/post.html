@@ -5,22 +5,32 @@
 
 {# Normal picture post #}
 {% if post.content.type == 'picture' %}
-    {% set opengraph_image = post.url %}
+{% set opengraph_image = post.url %}
 {# Gallery picture (if is_gif is not defined it's not a video) #}
 {% elif post.content.type == 'gallery' and not post.content.contents[0].is_gif is defined %}
-    {% set opengraph_image = post.content.contents[0].url %}
+{% set opengraph_image = post.content.contents[0].url %}
 {# Gallery video with a poster URL (if is_gif is defined it's a video) #}
-{% elif post.content.type == 'gallery' and post.content.contents[0].is_gif is defined and post.content.contents[0].poster_url %}
-    {% set opengraph_image = post.content.contents[0].poster_url %}
+{% elif post.content.type == 'gallery' and post.content.contents[0].is_gif is defined and
+post.content.contents[0].poster_url %}
+{% set opengraph_image = post.content.contents[0].poster_url %}
 {# Embed #}
 {% elif post.content.type == 'embed' and post.content.poster_url %}
-    {% set opengraph_image = post.content.poster_url %}
+{% set opengraph_image = post.content.poster_url %}
 {% endif %}
 
 {% extends "base.html" %}
 
 {% block main_content %}
-{{ post_macros.render_post_card(post, True, about_information.show_thumbnails, about_information.over18, True) }}
-<hr />
-{{ comments_macros.render_comments(about_information.name, post.id, post.comments) }}
+<div class="row">
+    <div class="col-12 col-lg-8">
+        {{ post_macros.render_post_card(post, True, about_information.show_thumbnails, about_information.over18, True)
+        }}
+        <div class="card mt-3">
+            {{ comments_macros.render_comments(about_information.name, post.id, post.comments) }}
+        </div>
+    </div>
+    <div class="col-12 col-lg-4 desktop-only">
+        {% include 'sidebar.html' %}
+    </div>
+</div>
 {% endblock %}
